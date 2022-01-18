@@ -28,5 +28,5 @@ public class Employee {
 
     @Column(name = "BIRTHDAY")
     @PastOrPresent
-    private LocalDate BYRTHDAY;
+    private LocalDate birthday;
 }

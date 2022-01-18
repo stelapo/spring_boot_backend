@@ -25,7 +25,7 @@ public class SpringBootBackendApplication {
             e.setFirstName("Mario");
             e.setLastName("Rossi");
             e.setEmail("m.rossi@pluto.yar");
-            e.setBYRTHDAY(LocalDate.of(1982, 5, 1));
+            e.setBirthday(LocalDate.of(1982, 5, 1));
             repository.save(e);
         };
     }
