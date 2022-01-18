@@ -1,21 +1,32 @@
 package com.example.spring_boot_backend.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.Data;
 
+import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.PastOrPresent;
+import java.time.LocalDate;
+
+@Data
 @Entity
+@Table(name = "EMPLOYEE")
 public class Employee {
-
-    private Long id;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     @Id
     @GeneratedValue
-    public Long getId() {
-        return id;
-    }
+    private Long id;
+
+    @Column(name = "FIRST_NAME")
+    private String firstName;
+
+    @Column(name = "LAST_NAME")
+    private String lastName;
+
+    @Column(name = "EMAIL")
+    @Email(message = "Email should be valid")
+    private String email;
+
+    @Column(name = "BIRTHDAY")
+    @PastOrPresent
+    private LocalDate BYRTHDAY;
 }
