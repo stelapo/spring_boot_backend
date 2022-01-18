@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "employee")
+@RequestMapping(path = "${api.base-path:/api}")
 public class EmployeeApiController implements EmployeeApi {
 
     private final EmployeeService employeeService;
