@@ -4,6 +4,7 @@ import com.example.spring_boot_backend.model.Employee;
 import com.example.spring_boot_backend.service.EmployeeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,5 +23,21 @@ public class EmployeeApiController implements EmployeeApi {
     @Override
     public ResponseEntity<List<Employee>> getEmployees() {
         return new ResponseEntity<>(employeeService.findAll(), HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<Employee> createEmployee(Employee employee) {
+        return new ResponseEntity<>(employeeService.saveEmployee(employee), HttpStatus.CREATED);
+    }
+
+    @Override
+    public ResponseEntity<Employee> updateEmployee(Long employeeId, Employee employee) {
+        return new ResponseEntity<>(employeeService.updateEmployee(employeeId, employee), HttpStatus.CREATED);
+    }
+
+    @Override
+    public ResponseEntity<Void> deleteEmployee(Long employeeId) {
+        employeeService.deleteEmployee(employeeId);
+        return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);
     }
 }
