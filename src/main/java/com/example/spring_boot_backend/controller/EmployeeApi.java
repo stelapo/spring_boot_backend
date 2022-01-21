@@ -15,6 +15,11 @@ public interface EmployeeApi {
             produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<Employee>> getEmployees();
 
+    @GetMapping(
+            path = "v1/employee/{employeeId}",
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<Employee> getEmployeesById(@PathVariable Long employeeId);
+
     @PostMapping(
             path = "v1/employee",
             consumes = MediaType.APPLICATION_JSON_VALUE,

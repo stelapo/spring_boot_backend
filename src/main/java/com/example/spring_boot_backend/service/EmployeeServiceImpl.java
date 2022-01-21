@@ -22,6 +22,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public Employee findById(Long employeeId) {
+        return employeeRepository.findById(employeeId)
+                .orElseThrow(
+                        () -> new ResourceNotFound("Resource Not Found")
+                );
+    }
+
+    @Override
     public Employee saveEmployee(Employee employee) {
         if (employee.getId() != null)
             employee.setId(null);

@@ -26,6 +26,11 @@ public class EmployeeApiController implements EmployeeApi {
     }
 
     @Override
+    public ResponseEntity<Employee> getEmployeesById(Long employeeId) {
+        return new ResponseEntity<>(employeeService.findById(employeeId), HttpStatus.OK);
+    }
+
+    @Override
     public ResponseEntity<Employee> createEmployee(Employee employee) {
         return new ResponseEntity<>(employeeService.saveEmployee(employee), HttpStatus.CREATED);
     }

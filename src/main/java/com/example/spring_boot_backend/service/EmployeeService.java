@@ -8,6 +8,8 @@ public interface EmployeeService {
 
     List<Employee> findAll();
 
+    Employee findById(Long employeeId);
+
     Employee saveEmployee(Employee employee);
 
     Employee updateEmployee(Long employeeId, Employee employee);
